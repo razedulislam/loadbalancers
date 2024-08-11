@@ -1,0 +1,19 @@
+kubectl create -f service1-rc.yaml
+kubectl create -f service-svc.yaml
+kubectl get pods
+#List All Services in Default Namespace:
+kubectl get svc
+kubectl get svc server1-service
+kubectl get ep
+kubectl get pods -o wide
+kubectl delete pod <pod name>
+docker build -t <dockerhub account id name>/<image name> .
+docker push <dockerhub account id name>/<image name>
+kubectl exec -it loadbalancer-rc-9d272 /bin/bash
+kubectl get svc -n default (run this locally or host machine)
+curl http://server1-service:80
+#for testing purpose use port forwading
+kubectl port-forward svc/server1-service 8080:80
+#for external use of service we use nodePort service
+nodePort: 30002 
+
