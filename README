@@ -1,3 +1,13 @@
+diagram of this project:
+https://prnt.sc/HUIljZAWzggT
+
+#some common command every debian based server:
+apt update -y
+apt install net-tools -y
+apt install tcpdump -y
+apt install vim -y
+
+
 kubectl create -f service1-rc.yaml
 kubectl create -f service-svc.yaml
 kubectl get pods
@@ -16,4 +26,10 @@ curl http://server1-service:80
 kubectl port-forward svc/server1-service 8080:80
 #for external use of service we use nodePort service
 nodePort: 30002 
+kubectl get svc server1-service -o yaml
+kubectl describe svc <service-name>
+#getting hit module, working internal port not working NotePort when tcpdump because port comming after forward 30001--->80
+tcpdump -i any port 80 -vv
+#check pod logs
+kubectl get logs <pod name>
 
